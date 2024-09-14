@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "gelato";
+  src: url("../public/assets/fonts/GelatoSans-Light.ttf");
+}
+
+@font-face {
+  font-family: "gelatoregular";
+  src: url("../public/assets/fonts/GelatoSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: "gelatobold";
+  src: url("../public/assets/fonts/GelatoSans-Bold.ttf");
+}
+
+@font-face {
+  font-family: "gelatosemibold";
+  src: url("../public/assets/fonts/GelatoSans-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "gelatomedium";
+  src: url("../public/assets/fonts/GelatoSans-Medium.ttf");
+}

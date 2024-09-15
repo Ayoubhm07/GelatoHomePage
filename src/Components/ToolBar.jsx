@@ -34,6 +34,7 @@ function ToolBar() {
                                 {key.replace('_', ' & ')}
                             </span>
                             <IoIosArrowDown className="text-lg transition-transform duration-300" style={{ transform: openDropdown === key ? 'rotate(180deg)' : 'rotate(0deg)' }} />
+                            
                         </div>
                         {openDropdown === key && (
                             <ul className="absolute top-full mt-2 w-48 bg-white shadow-lg rounded-md z-30 py-2">

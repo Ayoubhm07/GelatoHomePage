@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import HelloBar from '../Components/HelloBar';
-import NavBar from '../Components/NavBar';
+import NavBar from '../Components/NavBar/NavBar';
 import ToolBar from '../Components/ToolBar';
 import Hero from '../Components/Hero';
 import OffersBar from '../Components/OffersBar';
@@ -11,9 +11,8 @@ import Meet from '../Components/Meet';
 import { PiHeadsetFill } from "react-icons/pi";
 import { RiMessage2Line } from "react-icons/ri";
 import { IoCloseOutline } from "react-icons/io5";
-import Footer from '../Components/Footer';
-import FooterMob from '../Components/FooterMob';
-import NavBarMobile from '../Components/NavBarMob';
+import Footer from '../Components/Footer/Footer';
+import FooterMob from '../Components/Footer/FooterMob';
 
 
 const Home = () => {
@@ -40,13 +39,13 @@ const Home = () => {
             <div className='hidden lg:flex'>
                 <Footer />
             </div>
-            <div className="fixed bottom-4 right-4 z-50 font-gelato">
+            <div className="fixed bottom-4 right-32 lg:right-4 z-50 font-gelato">
                 <button onClick={toggleDropdown} className="flex items-center space-x-2 bg-[#212121] text-white hover:text-gray-400 font-gelato py-2 px-4 rounded-full">
                     <PiHeadsetFill className="text-white" />
                     <span>Contact us</span>
                 </button>
                 {isOpen && (
-                    <div className="bg-gray-100 text-[#212121] text-1xl rounded-md shadow-lg w-80 h-36 absolute bottom-full mb-8 right-0">
+                    <div className="bg-gray-100 text-[#212121] text-1xl rounded-md shadow-lg w-80 h-44 absolute bottom-full mb-8 right-0">
                         <div className="bg-[#212121] text-white p-2 flex justify-between items-center">
                             <span className="font-gelato ml-5">How can we help you?</span>
                             <button onClick={toggleDropdown} className="text-white p-1 rounded-full hover:bg-gray-600">

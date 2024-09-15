@@ -26,7 +26,7 @@ function ToolBar() {
             {openDropdown && (
                 <div className="fixed inset-0 bg-black bg-opacity-5 z-10" onClick={() => setOpenDropdown(null)}></div>
             )}
-            <div className="flex ml-28 space-x-6 bg-white py-2 relative z-20">
+            <div className="hidden lg:flex ml-28 space-x-6 bg-white py-2 relative z-20 ">
                 {Object.entries(dropdownItems).map(([key, values]) => (
                     <div key={key} className="relative group" onMouseOver={() => handleMouseOver(key)} onMouseLeave={handleMouseOut}>
                         <div className="flex items-center space-x-2 cursor-pointer select-none">

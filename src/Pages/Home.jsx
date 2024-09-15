@@ -6,12 +6,12 @@ import Hero from '../Components/Hero';
 import OffersBar from '../Components/OffersBar';
 import Why from '../Components/Why';
 import Solutions from '../Components/Solutions';
-// import Hero from '../Components/Hero';
-// import Reasons from '../Components/Reasons';
-// import How from '../Components/How';
-// import Stories from '../Components/Stories';
-// import Discover from '../Components/Discover';
-// import Footer from '../Components/Footer';
+import GelatoConnect from '../Components/GelatoConnect';
+import Meet from '../Components/Meet';
+import FooterC from '../Components/FooterC';
+import FooterStart from '../Components/FooterStart';
+import Footer from '../Components/Footer';
+
 
 const Home = () => {
     return (
@@ -23,6 +23,9 @@ const Home = () => {
              <OffersBar />
              <Why />
              <Solutions />
+             <GelatoConnect />
+             <Meet />
+             <Footer />
 
         </div>
     );

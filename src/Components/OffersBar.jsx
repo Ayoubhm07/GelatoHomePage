@@ -2,8 +2,8 @@ import React from 'react';
 
 function OffersBar() {
     return (
-        <div className="bg-[#faf6ef] py-4 flex justify-between items-center text-center font-gelatoregular text-[#212121]">
-            <div className="w-1/3">
+<div className="bg-[#faf6ef] py-4 justify-between items-center text-center font-gelatoregular text-[#212121] hidden lg:flex">
+<div className="w-1/3">
                 <h2 className="text-2xl">90%</h2>
                 <p className='text-2xl'>of all orders are produced <br /> locally</p>
                 

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { HiMenuAlt1 } from "react-icons/hi";
 import { IoPersonSharp } from "react-icons/io5";
 import { MdOutlineHeadsetMic } from "react-icons/md";
 import { SlGlobe } from "react-icons/sl";
-import { FaCartShopping } from "react-icons/fa6";
+import { FaCartShopping,FaTimes } from "react-icons/fa6";
 import { IoIosArrowDown } from "react-icons/io";
+import { IoMdMenu } from "react-icons/io";
 
 function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +20,7 @@ function NavBar() {
             {isOpen && <div className="fixed inset-0 bg-black bg-opacity-10 z-0"></div>}
             <nav className="font-cocogoose bg-white border-b border-gray-300 p-4 flex justify-between items-center relative z-10">
                 <div onClick={handleNav} className='block md:hidden'>
-                    <HiMenuAlt1 className='text-3xl' />
+                    <IoMdMenu className='text-3xl' />
                 </div>
                 <div className="flex items-center">
                     <img src="assets/images/gelato_logo_black.svg" alt="Gelato Logo" className="h-7 mr-48 mx-20" />
@@ -58,9 +58,9 @@ function NavBar() {
                         </a>
                     </div>
                 </div>
-                <div className='hidden md:flex xl:relative'>
+                <div className='md:flex xl:relative'>
                     <button
-                        className="w-36 h-8 mr-40 bg-black hover:bg-gray-800 text-white py-0 px-4 rounded-full font-gelatomedium">
+                        className="w-36 h-8 mr-40 bg-black hover:bg-gray-800 text-white py-0 px-4 rounded-full font-gelatomedium ">
                         Sign up for free
                     </button>
                 </div>

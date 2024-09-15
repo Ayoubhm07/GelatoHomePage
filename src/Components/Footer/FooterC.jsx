@@ -3,9 +3,15 @@ import { IoIosArrowDown } from "react-icons/io";
 
 function FooterC() {
     const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
+    const [selectedLanguage, setSelectedLanguage] = useState('English (India)');
 
     const toggleLanguageMenu = () => {
         setLanguageMenuOpen(!languageMenuOpen);
+    };
+
+    const selectLanguage = (language) => {
+        setSelectedLanguage(language);
+        setLanguageMenuOpen(false); // Close the menu after selection
     };
 
     return (
@@ -20,18 +26,31 @@ function FooterC() {
                     <a href="#" className="hover:text-gray-300">Sitemap</a>
                 </div>
                 <div className="relative mr-20">
-                    <button onClick={toggleLanguageMenu} className="flex items-center h-10 space-x-2 border border-white rounded-lg px-8">
-                        <span className='ml-2 text-sm'>English (India)</span>
-                        <IoIosArrowDown className="text-white text-right" />
-                    </button>
-                    {languageMenuOpen && (
-                        <ul className="absolute right-0 top-0 mt-[-50%] w-44 bg-black border border-white rounded-lg z-10">
-                            <li className="hover:bg-gray-700 py-1 px-4">English (US)</li>
-                            <li className="hover:bg-gray-700 py-1 px-4">Français (France)</li>
-                            <li className="hover:bg-gray-700 py-1 px-4">Español (España)</li>
-                        </ul>
-                    )}
+                {languageMenuOpen && (
+                <div className='relative right-0 w-44'>
+                <ul className=" bg-black border border-white rounded-lg z-10">
+                    {[
+                        'English - EN', 'Français - FR', 'Español - ES', 'Italiano - IT',
+                        'Deutsch - DE', 'Norsk - NO', 'Svenska - SE', 'Tiếng Việt - VI',
+                        'Nederlands - NL', 'Dansk - DA', 'English (Canada) - CA', 
+                        'English (United Kingdom) - UK', 'English (Australia) - AU', 
+                        'English (India) - IN', '日本語 - JA'
+                    ].map((language) => (
+                        <li key={language} 
+                            className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium"
+                            onClick={() => selectLanguage(language)}>
+                            {language}
+                        </li>
+                    ))}
+                </ul>
                 </div>
+            )}
+            <button onClick={toggleLanguageMenu} className="flex items-center h-10 space-x-2 border border-white rounded-lg px-8 bg-black text-white">
+                <span className='ml-2 text-sm'>{selectedLanguage}</span>
+                <IoIosArrowDown className="text-right" />
+            </button>
+            
+        </div>
             </div>
         </div>
     );

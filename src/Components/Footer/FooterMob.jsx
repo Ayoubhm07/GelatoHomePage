@@ -9,6 +9,7 @@ function DropdownSection({ title, children }) {
 
     const toggleDropdown = () => setIsOpen(!isOpen);
 
+
     return (
         <div className="space-y-1 mt-5">
             <button onClick={toggleDropdown} className="flex items-center space-x-2 mb-4 text-base hover:text-gray-300">
@@ -29,10 +30,17 @@ function handleNavigation() {
 
 function FooterMob() {
     const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
+    const [selectedLanguage, setSelectedLanguage] = useState('English (India)');
 
     const toggleLanguageMenu = () => {
         setLanguageMenuOpen(!languageMenuOpen);
     };
+
+    const selectLanguage = (language) => {
+        setSelectedLanguage(language);
+        setLanguageMenuOpen(false); // Close the menu after selection
+    };
+
     return (
         <div className="lg:hidden flex flex-col items-baseline bg-black text-white text-sm py-4">
             <img src="assets/images/gelato_logo_white.svg" alt="Gelato" className="h-10 mt-10" />
@@ -49,7 +57,7 @@ function FooterMob() {
 
                 <div className="container text-left mx-auto  flex flex-col items-start mt-10">
                     <DropdownSection title="Print on demand">
-                    <li><a href="https://www.gelato.com/in/print-on-demand" className="hover:text-gray-300">What is print on demand?</a></li>
+                        <li><a href="https://www.gelato.com/in/print-on-demand" className="hover:text-gray-300">What is print on demand?</a></li>
                         <li><a href="https://www.gelato.com/in/custom" className="hover:text-gray-300">Product catalog</a></li>
                         <li><a href="https://www.gelato.com/in/shipping-and-delivery" className="hover:text-gray-300">Shipping and delivery</a></li>
                         <li><a href="https://www.gelato.com/in/dropshipping-products" className="hover:text-gray-300">Dropshipping products</a></li>
@@ -61,7 +69,7 @@ function FooterMob() {
                         <li><a href="https://support.gelato.com/en/?_gl=1*mm1zdn*_ga*NzM3NTk4NjkzLjE3MjYxNjU0MTc.*_ga_XBMT9WLLHR*MTcyNjQxMjU4Ni44LjEuMTcyNjQxMjcwOC4xMC4wLjIwNTk5MDc4NjE.*_gcl_au*NDI3ODQ3OTYyLjE3MjYxNjU0MzQ." className="hover:text-gray-300">Support</a></li>
                     </DropdownSection>
                     <DropdownSection title="Integrations">
-                    <li><a href="https://www.gelato.com/in/print-on-demand/shopify" className="hover:text-gray-300">Shopify</a></li>
+                        <li><a href="https://www.gelato.com/in/print-on-demand/shopify" className="hover:text-gray-300">Shopify</a></li>
                         <li><a href="https://www.gelato.com/in/print-on-demand/etsy" className="hover:text-gray-300">Etsy</a></li>
                         <li><a href="https://www.gelato.com/in/print-on-demand/woocommerce" className="hover:text-gray-300">WooCommerce</a></li>
                         <li><a href="https://www.gelato.com/in/print-on-demand/wix" className="hover:text-gray-300">Wix</a></li>
@@ -133,15 +141,25 @@ function FooterMob() {
                 </div>
 
                 <div className="relative mr-10 mt-10">
-                    <button onClick={toggleLanguageMenu} className="flex items-center h-10 space-x-2 border border-white rounded-lg px-8">
-                        <span className='ml-2 text-sm'>English (India)</span>
-                        <IoIosArrowDown className="text-white text-right" />
+                    <button onClick={toggleLanguageMenu} className="flex items-center h-10 space-x-2 border border-white rounded-lg px-8 bg-black text-white">
+                        <span className='ml-2 text-sm'>{selectedLanguage}</span>
+                        <IoIosArrowDown className="text-right" />
                     </button>
                     {languageMenuOpen && (
-                        <ul className="absolute left-0 top-0 mt-[-30%] w-44 bg-black border border-white rounded-lg z-10">
-                            <li className="hover:bg-gray-700 py-1 px-4">English (US)</li>
-                            <li className="hover:bg-gray-700 py-1 px-4">Français (France)</li>
-                            <li className="hover:bg-gray-700 py-1 px-4">Español (España)</li>
+                        <ul className="absolute left-0 top-0 mt-[-170%] w-44 bg-black border border-white rounded-lg z-10">
+                            {[
+                                'English - EN', 'Français - FR', 'Español - ES', 'Italiano - IT',
+                                'Deutsch - DE', 'Norsk - NO', 'Svenska - SE', 'Tiếng Việt - VI',
+                                'Nederlands - NL', 'Dansk - DA', 'English (Canada) - CA',
+                                'English (United Kingdom) - UK', 'English (Australia) - AU',
+                                'English (India) - IN', '日本語 - JA'
+                            ].map((language) => (
+                                <li key={language}
+                                    className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium"
+                                    onClick={() => selectLanguage(language)}>
+                                    {language}
+                                </li>
+                            ))}
                         </ul>
                     )}
                 </div>

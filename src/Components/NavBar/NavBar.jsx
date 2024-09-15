@@ -12,11 +12,11 @@ import './NavBarMobile.css';
 function NavBar() {
 
 
-    const [isOpen, setIsOpen] = useState(false); 
-    const [isLanguageListOpen, setIsLanguageListOpen] = useState(false); 
-    const [isCurrencyListOpen, setIsCurrencyListOpen] = useState(false); 
+    const [isOpen, setIsOpen] = useState(false);
+    const [isLanguageListOpen, setIsLanguageListOpen] = useState(false);
+    const [isCurrencyListOpen, setIsCurrencyListOpen] = useState(false);
 
-    const [isNavVisible, setIsNavVisible] = useState(false); 
+    const [isNavVisible, setIsNavVisible] = useState(false);
 
     const handleNavMob = () => {
         setIsNavVisible(!isNavVisible);
@@ -30,7 +30,7 @@ function NavBar() {
 
     return (
         <>
-            {isOpen && <div className="fixed inset-0 bg-black bg-opacity-10 -z-50"></div>}
+            {(isOpen || isLanguageListOpen || isCurrencyListOpen) && <div className="fixed inset-0 bg-black bg-opacity-10 -z-50"></div>}
             {isNavVisible && <div className="overlay" onClick={handleNavMob}></div>}
             <nav className="font-cocogoose bg-white border-b border-gray-300 p-4 flex justify-between items-center relative z-50">
                 <div onClick={handleNavMob} className='block md:hidden'>
@@ -47,8 +47,16 @@ function NavBar() {
                         </a>
                     </div>
                     <div className="relative p-1 w-28 bg-white hover:bg-gray-200 rounded-full transition duration-200 ease-in-out">
-                        <div className="flex items-center space-x-2 cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
-                            <SlGlobe className="text-lg" />
+                        <div className="flex items-center space-x-2 cursor-pointer"
+                            onClick={() => {
+                                if (isLanguageListOpen || isCurrencyListOpen) {
+                                    setIsLanguageListOpen(false);
+                                    setIsCurrencyListOpen(false);
+                                    setIsOpen(false); 
+                                } else {
+                                    setIsOpen(!isOpen);
+                                }
+                            }}>                            <SlGlobe className="text-lg" />
                             <span className="font-gelatomedium">IN/EUR</span>
                             <IoIosArrowDown className="text-lg" />
                         </div>
@@ -57,41 +65,70 @@ function NavBar() {
                                 <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium"
                                     onClick={() => {
                                         setIsLanguageListOpen(true);
-                                        setIsOpen(false); // Close the first dropdown
+                                        setIsOpen(false);
                                     }}>
                                     Language - IN
                                 </li>
                                 <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium"
                                     onClick={() => {
                                         setIsCurrencyListOpen(true);
-                                        setIsOpen(false); 
-                                    }}>            
-                                     Currency - EUR
+                                        setIsOpen(false);
+                                    }}>
+                                    Currency - EUR
                                 </li>
                             </ul>
                         )}
                         {isLanguageListOpen && (
-                            <ul className="absolute top-full mt-1 w-full bg-white shadow-lg rounded-md z-20">
-                                <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">English - EN</li>
-                                <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Français - FR</li>
-                                <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Español - ES</li>
-                                {/* Add other languages as needed */}
-                                <li className="p-3 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium text-center"
-                                    onClick={() => setIsLanguageListOpen(false)}>  {/* Add back/close functionality */}
+                            <div className="absolute top-full w-56 bg-white shadow-lg rounded-md z-20">
+                                <ul className="overflow-y-auto max-h-60">
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">English - EN</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Français - FR</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Español - ES</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Italiano - IT</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Deutsch - DE</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Norsk - NO</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Svenska - SE</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Tiếng Việt - VI</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Nederlands - NL</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Dansk - DA</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">English (Canada) - CA</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">English (United Kingdom) - UK</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">English (Australia) - AU</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">English (India) - IN</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">日本語 - JA</li>
+                                </ul>
+                                <button className="w-full p-2 mt-2 bg-gray-200 hover:bg-gray-100 transition duration-150 ease-in-out cursor-pointer font-gelatomedium text-center"
+                                    onClick={() => setIsLanguageListOpen(false)}>
                                     Back
-                                </li>
-                            </ul>
+                                </button>
+                            </div>
+
+
                         )}
-                         {isCurrencyListOpen && (
-                            <ul className="absolute top-full mt-1 w-full bg-white shadow-lg rounded-md z-20">
-                                <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">United States dollar - USD</li>
-                                <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Euro - EUR</li>
-                                <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Pound Sterling - GBP</li>
-                                <li className="p-3 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium text-center"
-                                    onClick={() => setIsCurrencyListOpen(false)}>  
+                        {isCurrencyListOpen && (
+                            <div className="absolute top-full w-56 bg-white shadow-lg rounded-md z-20">
+                                <ul className="overflow-y-auto max-h-60">
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">United States dollar - USD</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Euro - EUR</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Pound Sterling - GBP</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Australian dollar - AUD</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Canadian dollar - CAD</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Japanese yen - JPY</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Swiss franc - CHF</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Danish krone - DKK</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Norwegian krone - NOK</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Swedish krona - SEK</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">United Arab Emirates dirham - AED</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Brazilian real - BRL</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Chilean peso - CLP</li>
+                                    <li className="p-2 hover:bg-gray-200 transition duration-150 ease-in-out cursor-pointer font-gelatomedium">Chinese yuan renminbi - CNY</li>
+
+                                </ul>
+                                <button className="w-full p-2 mt-2 bg-gray-200 hover:bg-gray-100 transition duration-150 ease-in-out cursor-pointer font-gelatomedium text-center"
+                                    onClick={() => setIsCurrencyListOpen(false)}>
                                     Back
-                                </li>
-                            </ul>
+                                </button>
+                            </div>
                         )}
                     </div>
 

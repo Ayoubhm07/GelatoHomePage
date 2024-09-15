@@ -1,7 +1,4 @@
 import React from 'react';
-import { AiFillInstagram } from "react-icons/ai";
-import { FaFacebookF, FaTiktok, FaLinkedinIn, FaYoutube } from "react-icons/fa";
-
 
 function FooterA() {
     return (

@@ -1,5 +1,4 @@
 import React from 'react';
-import { RiStarSFill } from "react-icons/ri";
 
 
 function Meet() {

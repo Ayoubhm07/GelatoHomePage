@@ -38,7 +38,7 @@ function FooterMob() {
 
     const selectLanguage = (language) => {
         setSelectedLanguage(language);
-        setLanguageMenuOpen(false); // Close the menu after selection
+        setLanguageMenuOpen(false);
     };
 
     return (

@@ -20,8 +20,8 @@ function FooterC() {
                     <a href="#" className="hover:text-gray-300">Sitemap</a>
                 </div>
                 <div className="relative mr-20">
-                <button onClick={toggleLanguageMenu} className="flex items-center h-10 space-x-2 border border-white rounded-lg px-8">
-                <span className='ml-2 text-sm'>English (India)</span>
+                    <button onClick={toggleLanguageMenu} className="flex items-center h-10 space-x-2 border border-white rounded-lg px-8">
+                        <span className='ml-2 text-sm'>English (India)</span>
                         <IoIosArrowDown className="text-white text-right" />
                     </button>
                     {languageMenuOpen && (

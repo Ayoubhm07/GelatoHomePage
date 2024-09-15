@@ -25,6 +25,7 @@ function Solutions() {
                     <p className="text-3xl text-[#212121] font-gelatoregular mb-6 lg:hidden">
                         See how our cutting-edge solutions can help you.reach new customers and maximize your profits.
                     </p>
+                    <a href='https://www.gelato.com/in/tools-and-apps'>
                     <div className="hidden flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                         <button className="bg-[#212121] text-white hover:text-gray-400 font-gelatomedium py-1 px-6 rounded-full">
                             Get started
@@ -35,6 +36,7 @@ function Solutions() {
                             Get started
                         </button>
                     </div>
+                    </a>
                 </div>
                 <div className="hidden lg:w-1/2 lg:mb-12 mr-36 lg:mt-0 lg:flex lg:justify-center">
                     <img src="assets/images/solution.gif" alt="Ecommerce Solutions" className="mb-22" />

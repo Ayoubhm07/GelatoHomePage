@@ -24,7 +24,7 @@ function Why() {
                         <div>
                             <h2 className="text-3xl lg:text-2xl py-2 font-gelatoregular">▻100% free editing tools</h2>
                             <p className="font-gelato">
-                                Create your custom products using our suite of <a href="/your-desired-link" className="underline hover:text-gray-500">free tools</a>.
+                                Create your custom products using our suite of <a href="https://www.gelato.com/design-maker" className="underline hover:text-gray-500">free tools</a>.
                             </p>
                         </div>
                         <div>
@@ -49,8 +49,8 @@ function Why() {
                         </div>
                         <div>
                             <h2 className="text-3xl lg:text-2xl py-2 font-gelatoregular">▻1-click integration to the leading ecommerce platforms</h2>
-                            <p className="font-gelato lg:hidden">Connect your store to Gelato using <a href="/your-desired-link" className="underline hover:text-gray-500">our integrations</a> with <a href="/your-desired-link" className="underline hover:text-gray-500">Shopify</a>, <a href="/your-desired-link" className="underline hover:text-gray-500">Etsy</a> and more.</p>
-                            <p className="hidden lg:block font-gelato">Connect your store to Gelato using <a href="/your-desired-link" className="underline hover:text-gray-500">our integrations</a> with <a href="/your-desired-link" className="underline hover:text-gray-500">Shopify</a>, <a href="/your-desired-link" className="underline hover:text-gray-500">Etsy</a> and <br /> more.</p>
+                            <p className="font-gelato lg:hidden">Connect your store to Gelato using <a href="https://www.gelato.com/integrations" className="underline hover:text-gray-500">our integrations</a> with <a href="https://www.gelato.com/print-on-demand/shopify" className="underline hover:text-gray-500">Shopify</a>, <a href="https://www.gelato.com/print-on-demand/etsy" className="underline hover:text-gray-500">Etsy</a> and more.</p>
+                            <p className="hidden lg:block font-gelato">Connect your store to Gelato using <a href="https://www.gelato.com/integrations" className="underline hover:text-gray-500">our integrations</a> with <a href="https://www.gelato.com/print-on-demand/shopify" className="underline hover:text-gray-500">Shopify</a>, <a href="https://www.gelato.com/print-on-demand/etsy" className="underline hover:text-gray-500">Etsy</a> and <br /> more.</p>
                         </div>
                     </div>
                 </div>
